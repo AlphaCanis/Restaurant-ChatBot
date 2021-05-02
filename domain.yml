@@ -1,0 +1,85 @@
+version: "2.0"
+
+intents:
+  - greet
+  - seats
+  - time
+  # - affirm
+  # - deny
+  # - mood_great
+  # - mood_unhappy
+  # - bot_challenge
+
+slots:
+  nos:
+    type: text
+  section:
+    type: text  
+  hour:
+    type: text   
+
+entities:
+- nos
+- section
+- hour
+
+actions:
+- action_time
+
+
+responses:
+  # utter_greet:
+  # - text: "How many seats would you like to reserve:"
+
+  utter_seats:
+  - text: "How many seats would you like to reserve:"
+
+  utter_section:
+  - text: "Which section would you like to book"
+    buttons:
+    - title: "AC"
+      payload: '/AC{"section": "AC"}'
+    - title: "Non AC"
+      payload: '/Non_AC{"section": "Non AC"}'
+
+
+  utter_time:
+  - text: "When would you like to book a reservation? (We are only open from 7pm to 10pm)"
+
+  utter_special:
+  - text: "Our chef is a master of the Italian cuisine. Our core speciality is our pasta, which is renowned throughout the city." 
+
+  utter_can_res:
+  - text: "To cancel a reservation, simply call us at +91 9876543210 and cancel your reservation."
+
+  utter_open:
+  - text: "The restaurant is open each and every day."
+
+  utter_timings:
+  - text: "The restaurant opens at 7pm and closes at 10pm."  
+
+#   utter_final1:
+#   - text: "You have reserved {nos} seats in our {section} section for {time}pm. Thanks!
+
+# " 
+     
+
+
+
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  # utter_goodbye:
+  # - text: "Bye"
+
+  # utter_iamabot:
+  # - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
